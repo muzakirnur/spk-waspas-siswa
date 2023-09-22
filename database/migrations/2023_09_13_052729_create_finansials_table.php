@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('finansials', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_ayah');
-            $table->string('nama_ibu');
+            $table->foreignId('mahasiswa_id')->constrained();
             $table->string('status_ayah');
             $table->string('status_ibu');
             $table->string('pekerjaan_ayah');
