@@ -13,6 +13,10 @@
         {{-- Font Awesome --}}
         <script src="https://kit.fontawesome.com/e5736c35e5.js" crossorigin="anonymous"></script>
 
+        {{-- Yajra Datatables --}}
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
+
         <!-- Styles -->
         @livewireStyles
 
@@ -62,5 +66,8 @@
         </div>
 
         @livewireScripts
+        {{-- Yajra Datatables --}}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     </body>
 </html>
