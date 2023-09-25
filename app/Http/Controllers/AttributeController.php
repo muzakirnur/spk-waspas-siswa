@@ -13,8 +13,9 @@ class AttributeController extends Controller
         if (request()->ajax()) {
             $attributes = Attribute::query();
             return DataTables::eloquent($attributes)
-                ->addColumn('edit', '<a href="{{route("attribute.edit", $id)}}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                <i class="fa-solid fa-edit"></i></a>')
+                ->addColumn('edit', '<a href="{{route("attribute.edit", $id)}}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white mr-2">
+                <i class="fa-solid fa-edit"></i></a><a href="{{route("attribute.edit", $id)}}" class="btn bg-red-600 hover:bg-red-700 text-white">
+                <i class="fa-solid fa-trash"></i></a>')
                 ->rawColumns(['edit'])
                 ->make();
         }
