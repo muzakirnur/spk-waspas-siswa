@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kriterias', function (Blueprint $table) {
+        Schema::create('nilai_attributes', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kriteria');
-            $table->string('kode_kriteria');
-            $table->integer('bobot');
+            $table->foreignId('attribute_id')->constrained();
+            $table->string('value');
+            $table->string('nilai');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kriterias');
+        Schema::dropIfExists('nilai_attributes');
     }
 };
