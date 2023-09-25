@@ -31,6 +31,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     /* Route for Attribute */
     Route::get('attribute', [AttributeController::class, 'index'])->name('attribute.index');
+    Route::get('attribute/create', [AttributeController::class, 'create'])->name('attribute.create');
+    Route::post('attribute/create', [AttributeController::class, 'save'])->name('attribute.save');
+    Route::get('attribute/edit/{id}', [AttributeController::class, 'edit'])->name('attribute.edit');
+    Route::put('attribute/edit/{id}', [AttributeController::class, 'update'])->name('attribute.update');
     Route::fallback(function() {
         return view('pages/utility/404');
     });    
