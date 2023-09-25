@@ -14,8 +14,8 @@ class AttributeController extends Controller
             $attributes = Attribute::query();
             return DataTables::eloquent($attributes)
                 ->addColumn('edit', '<a href="{{route("attribute.edit", $id)}}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white mr-2">
-                <i class="fa-solid fa-edit"></i></a><a href="{{route("attribute.edit", $id)}}" class="btn bg-red-600 hover:bg-red-700 text-white">
-                <i class="fa-solid fa-trash"></i></a>')
+                <i class="fa-solid fa-edit"></i></a><button onclick="showModals({{$id}})" class="btn bg-red-600 hover:bg-red-700 text-white">
+                <i class="fa-solid fa-trash"></i></button>')
                 ->rawColumns(['edit'])
                 ->make();
         }
@@ -56,5 +56,11 @@ class AttributeController extends Controller
         ]);
         $attribute->update($validated);
         return redirect()->route('attribute.index')->with('success', 'Attribute berhasil diupdate!');
+    }
+
+    function delete($id)
+    {
+        $attribute = Attribute::findOrFail($id);
+        $attribute->delete();
     }
 }

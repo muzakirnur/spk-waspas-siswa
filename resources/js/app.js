@@ -2,6 +2,9 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 
+// Import Sweetalert
+import Swal from 'sweetalert2';
+
 // Import Chart.js
 import { Chart } from 'chart.js';
 
@@ -25,6 +28,9 @@ import dashboardCard11 from './components/dashboard-card-11';
 // Call Alpine
 window.Alpine = Alpine;
 Alpine.start();
+
+// Call Sweetalert
+window.Swal = Swal;
 
 
 // Define Chart.js default settings

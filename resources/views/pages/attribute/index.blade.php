@@ -7,17 +7,6 @@
                 <span class="hidden xs:block ml-2">Tambah Attribute</span>
             </a>
         </div>
-        @if (session()->has('success'))
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
-            <div class="w-full">
-                <div alert
-                    class="relative p-4 pr-12 mb-4 text-white border border-solid rounded-lg bg-green-600">
-                    <strong>Berhasil !</strong>
-                    {{ session('success') }}
-                </div>
-            </div>
-        </div>
-        @endif
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
             <div class="w-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
@@ -48,7 +37,6 @@
                         <tbody class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700">
                         </tbody>
                     </table>
-            
                 </div>
             </div>
         </div>
@@ -80,5 +68,30 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        function showModals(id){
+            Swal.fire({
+                title: "Yakin ingin Menghapus Attribute Ini ?",
+                text: "Data Akan Terhapus secara permanen!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Hapus",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                    type:'GET',
+                    url: "{{ url()->current() }}" + "/" + "delete" + "/" +  id,
+                });
+                    Swal.fire(
+                    'Dihapus!',
+                    'Data Attribute berhasil dihapus !',
+                    'success',
+                    ).then((after) => location.reload());
+                }
+            });
+        }
+    </script> 
     @endpush
 </x-app-layout>

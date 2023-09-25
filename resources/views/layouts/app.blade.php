@@ -71,5 +71,17 @@
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
         @stack('custom-scripts')
+        {{-- Success Messages --}}
+        @if (session()->has('success'))
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function(){
+            Swal.fire({
+                    title: "Berhasil !",
+                    text: "{{session('success')}}",
+                    icon: "success",
+                })
+        })
+        </script>
+        @endif
     </body>
 </html>
