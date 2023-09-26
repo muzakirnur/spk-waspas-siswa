@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\NilaiAttributeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('attribute/edit/{id}', [AttributeController::class, 'edit'])->name('attribute.edit');
     Route::put('attribute/edit/{id}', [AttributeController::class, 'update'])->name('attribute.update');
     Route::get('attribute/delete/{id}', [AttributeController::class, 'delete'])->name('attribute.delete');
+
+    /* Route for Nilai Attribute */
+    Route::get('nila-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
+    Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');
+    Route::post('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'save'])->name('nilai-attribute.save');
+    Route::get('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'edit'])->name('nilai-attribute.edit');
+    Route::put('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'update'])->name('nilai-attribute.update');
+    Route::post('nilai-attribute/delete', [NilaiAttributeController::class, 'delete'])->name('nilai-attribute.delete');
 
     Route::fallback(function() {
         return view('pages/utility/404');

@@ -20,13 +20,13 @@
                         <thead class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
                             <tr>
                                 <th class="p-2">
-                                    <div class="font-semibold text-left">Nama Kriteria</div>
+                                    <div class="font-semibold text-left">Nama Attribute</div>
                                 </th>
                                 <th class="p-2">
-                                    <div class="font-semibold text-left">Kode Kriteria</div>
+                                    <div class="font-semibold text-left">Kode Attribute</div>
                                 </th>
                                 <th class="p-2">
-                                    <div class="font-semibold text-left">Bobot Kriteria</div>
+                                    <div class="font-semibold text-left">Bobot Attribute</div>
                                 </th>
                                 <th class="p-2">
                                     <div class="font-semibold text-left">Aksi</div>
