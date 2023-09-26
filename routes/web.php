@@ -32,6 +32,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
     Route::post('mahasiswa/create', [MahasiswaController::class, 'save'])->name('mahasiswa.save');
     Route::get('mahasiswa/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
+    Route::post('mahasiswa/delete', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete');
 
     /* Route for Attribute */
     Route::get('attribute', [AttributeController::class, 'index'])->name('attribute.index');

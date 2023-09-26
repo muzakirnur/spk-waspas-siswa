@@ -75,5 +75,34 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        function showModals(id){
+            Swal.fire({
+                title: "Yakin ingin Menghapus Data Mahasiswa Ini ?",
+                text: "Data Akan Terhapus secara permanen!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Hapus",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                    type:'POST',
+                    url: "{{route('mahasiswa.delete')}}",
+                    data:{
+                        "_token": "{{ csrf_token() }}",
+                        id:id,
+                    }
+                    })
+                    Swal.fire(
+                        'Dihapus!',
+                        'Data Nilai berhasil dihapus !',
+                        'success',
+                    ).then((after) => location.reload())
+                }
+            });
+        }
+    </script> 
     @endpush
 </x-app-layout>
