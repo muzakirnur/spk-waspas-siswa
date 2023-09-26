@@ -31,6 +31,9 @@
                                 <th class="p-2">
                                     <div class="font-semibold text-left">Program Studi</div>
                                 </th>
+                                <th class="p-2">
+                                    <div class="font-semibold text-left">Aksi</div>
+                                </th>
                             </tr>
                         </thead>
                         <!-- Table body -->
@@ -63,6 +66,10 @@
                     {
                         data: 'program_studi',
                         name: 'program_studi'
+                    },
+                    {
+                        data: 'edit',
+                        name: 'edit'
                     },
                 ]
             });
