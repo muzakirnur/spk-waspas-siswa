@@ -34,7 +34,6 @@ class MahasiswaImport implements ToCollection
                     'asal_sekolah' => $col[1],
                     'program_studi' => $col[23],
                 ]);
-            }
 
             $nilaiC1 = NilaiAttribute::query()->where('attribute_id', $attributes[0]->id)->where('value', 'like', '%'. $col[10] . '%')->first();
             $finansialC1 = Finansial::create([
@@ -84,6 +83,7 @@ class MahasiswaImport implements ToCollection
                 'nilai_attribute_id' => $nilaiC7->id,
                 'nilai' => $nilaiC7->nilai
             ]);
+        }
         }
     }
 }

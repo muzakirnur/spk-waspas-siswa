@@ -16,4 +16,9 @@ class Attribute extends Model
         $data = NilaiAttribute::query()->where('attribute_id', $this->id)->get();
         return $data;
     }
+
+    function normalizedAttribute()
+    {
+        return $this->bobot/100;
+    }
 }

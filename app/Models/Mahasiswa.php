@@ -16,4 +16,16 @@ class Mahasiswa extends Model
         $data = Finansial::query()->with('nilaiAttribute')->where('mahasiswa_id', $this->id)->get();
         return $data;
     }
+
+    function countAllUtility()
+    {
+        $utils = 0;
+        $financials = $this->getFinancial();
+        foreach($financials as $financial){
+            $nomalisasi = $financial->nilaiAttribute->attribute->normalizedAttribute();
+            $nilai = $financial->nilaiUtility() * $nomalisasi;
+            $utils = floatval($utils + $nilai);
+        }
+        return $utils;
+    }
 }

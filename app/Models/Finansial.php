@@ -16,4 +16,12 @@ class Finansial extends Model
     {
         return $this->belongsTo(NilaiAttribute::class);
     }
+
+    function nilaiUtility()
+    {
+        $getNilaiByAttribute = NilaiAttribute::query()->where('attribute_id', $this->nilaiAttribute->attribute_id)->get();
+        $maxNilai = floatval($getNilaiByAttribute->max('nilai'));
+        $nilaiUtility = (($maxNilai - $this->nilai) / (100-0)) * 100;
+        return $nilaiUtility;
+    }
 }
