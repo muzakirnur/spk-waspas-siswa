@@ -29,6 +29,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     /* Route for Mahasiswa */
     Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+    Route::get('mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+    Route::post('mahasiswa/create', [MahasiswaController::class, 'save'])->name('mahasiswa.save');
 
     /* Route for Attribute */
     Route::get('attribute', [AttributeController::class, 'index'])->name('attribute.index');
@@ -39,7 +41,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('attribute/delete/{id}', [AttributeController::class, 'delete'])->name('attribute.delete');
 
     /* Route for Nilai Attribute */
-    Route::get('nila-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
+    Route::get('nilai-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
     Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');
     Route::post('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'save'])->name('nilai-attribute.save');
     Route::get('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'edit'])->name('nilai-attribute.edit');
