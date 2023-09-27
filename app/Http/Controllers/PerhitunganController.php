@@ -11,6 +11,10 @@ class PerhitunganController extends Controller
 {
     function index()
     {
+        $checkHasil = Hasil::count();
+        if($checkHasil > 0){
+            return redirect()->route('hasil.index')->with('error', 'Hasil perangkingan sudah disimpan!');
+        }
         $data['attributes'] = Attribute::all();
         $data['mahasiswas'] = Mahasiswa::paginate(10);
         return view('pages.perhitungan.index', compact('data'));
