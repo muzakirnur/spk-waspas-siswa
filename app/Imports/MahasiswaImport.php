@@ -70,7 +70,7 @@ class MahasiswaImport implements ToCollection
                 'nilai' => $nilaiC5->nilai
             ]);
 
-            $nilaiC6 = NilaiAttribute::query()->where('attribute_id', $attributes[5]->id)->where('value', 'like', '%'. "< Rp. 250.000" . '%')->first();
+            $nilaiC6 = NilaiAttribute::query()->where('attribute_id', $attributes[5]->id)->where('value', 'like', '%'. $col[13] . '%')->first();
             $finansialC6 = Finansial::create([
                 'mahasiswa_id' => $mhs->id,
                 'nilai_attribute_id' => $nilaiC6->id,
@@ -82,6 +82,16 @@ class MahasiswaImport implements ToCollection
                 'mahasiswa_id' => $mhs->id,
                 'nilai_attribute_id' => $nilaiC7->id,
                 'nilai' => $nilaiC7->nilai
+            ]);
+
+            if($col[16] == "-"){
+                $col[16] = "Tidak Memiliki";
+            }
+            $nilaiC8 = NilaiAttribute::query()->where('attribute_id', $attributes[7]->id)->where('value', 'like', '%'. $col[16] . '%')->first();
+            $finansialC8 = Finansial::create([
+                'mahasiswa_id' => $mhs->id,
+                'nilai_attribute_id' => $nilaiC8->id,
+                'nilai' => $nilaiC8->nilai
             ]);
         }
         }

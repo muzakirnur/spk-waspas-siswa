@@ -20,7 +20,7 @@ class AttributeSeeder extends Seeder
         $data1 = Attribute::create([
             'nama' => "Status Ayah",
             'kode' => "C1",
-            'bobot' => 25,
+            'bobot' => 20,
         ]);
 
         NilaiAttribute::create([
@@ -45,7 +45,7 @@ class AttributeSeeder extends Seeder
         $data2 = Attribute::create([
             'nama' => "Status Ibu",
             'kode' => "C2",
-            'bobot' => 25,
+            'bobot' => 20,
         ]);
 
         NilaiAttribute::create([
@@ -302,7 +302,7 @@ class AttributeSeeder extends Seeder
         ]);
         NilaiAttribute::create([
             'attribute_id' => $data6->id,
-            'value' => " 2.000.001 - Rp. 2.250.000",
+            'value' => "Rp. 2.000.001 - Rp. 2.250.000",
             'nilai' => 55
         ]);
         NilaiAttribute::create([
@@ -417,6 +417,39 @@ class AttributeSeeder extends Seeder
             'attribute_id' => $data7->id,
             'value' => "Tidak Ada Tanggungan",
             'nilai' => 10
+        ]);
+
+        /* Seeder C8 */
+        $data8 = Attribute::create([
+            'nama' => "Kepemilikan Rumah",
+            'kode' => "C8",
+            'bobot' => 10,
+        ]);
+
+        NilaiAttribute::create([
+            'attribute_id' => $data8->id,
+            'value' => "Sendiri",
+            'nilai' => 100
+        ]);
+        NilaiAttribute::create([
+            'attribute_id' => $data8->id,
+            'value' => "Sewa Tahunan",
+            'nilai' => 80
+        ]);
+        NilaiAttribute::create([
+            'attribute_id' => $data8->id,
+            'value' => "Sewa Bulanan",
+            'nilai' => 60
+        ]);
+        NilaiAttribute::create([
+            'attribute_id' => $data8->id,
+            'value' => "Menumpang",
+            'nilai' => 40
+        ]);
+        NilaiAttribute::create([
+            'attribute_id' => $data8->id,
+            'value' => "Tidak Memiliki",
+            'nilai' => 20
         ]);
     }
 }
