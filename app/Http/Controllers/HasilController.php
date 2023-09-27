@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hasil;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -23,5 +24,12 @@ class HasilController extends Controller
                 ->make();
         }
         return view('pages.hasil.index');    
+    }
+
+    function export()
+    {
+        $data = Hasil::query()->with('mahasiswa')->get();
+        $pdf = Pdf::loadView('pdf.export', ['data' => $data]);
+        return $pdf->download('hasilPerankingan.pdf');
     }
 }

@@ -54,6 +54,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     /* Route for Hasil */
     Route::get('hasil', [HasilController::class, 'index'])->name('hasil.index');
+    Route::get('hasil/export', [HasilController::class, 'export'])->name('hasil.export');
 
     /* Route for Perhitungan SMART */
     Route::get('perhitungan',[PerhitunganController::class, 'index'])->name('perhitungan.index');
