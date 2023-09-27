@@ -117,6 +117,15 @@
                             </div>
                         </a>
                     </li>
+                    <!-- Hasil Perangkingan -->
+                    <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['hasil'])){{ 'bg-slate-900' }}@endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['hasil'])){{ 'hover:text-slate-200' }}@endif" href="{{route('hasil.index')}}">
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-square-poll-vertical text-xl {{in_array(Request::segment(1),['hasil']) ? 'text-indigo-500' : 'text-slate-600'}}"></i>
+                                <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Hasil Perangkingan</span>
+                            </div>
+                        </a>
+                    </li>
                     <!-- Community -->
                     {{-- <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['community'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['community']) ? 1 : 0 }} }">
                         <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['community'])){{ 'hover:text-slate-200' }}@endif" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">

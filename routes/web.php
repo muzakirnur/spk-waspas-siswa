@@ -4,6 +4,7 @@ use App\Http\Controllers\AttributeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HasilController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\NilaiAttributeController;
 use App\Http\Controllers\PerhitunganController;
@@ -51,8 +52,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::put('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'update'])->name('nilai-attribute.update');
     Route::post('nilai-attribute/delete', [NilaiAttributeController::class, 'delete'])->name('nilai-attribute.delete');
 
+    /* Route for Hasil */
+    Route::get('hasil', [HasilController::class, 'index'])->name('hasil.index');
+
     /* Route for Perhitungan SMART */
     Route::get('perhitungan',[PerhitunganController::class, 'index'])->name('perhitungan.index');
+    Route::post('perhitungan/save', [PerhitunganController::class, 'save'])->name('perhitungan.save');
 
     Route::fallback(function() {
         return view('pages/utility/404');
