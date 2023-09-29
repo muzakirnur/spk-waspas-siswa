@@ -15,7 +15,7 @@ class HasilController extends Controller
             $hasils = Hasil::query()->with('mahasiswa');
             return DataTables::eloquent($hasils)
                 ->order(function($query){
-                    $query->orderBy('nilai', 'ASC');
+                    $query->orderBy('nilai', 'DESC');
                 })
                 ->orderColumn('nilai', function($query, $order){
                     $query->orderBy('nilai', $order);
@@ -28,7 +28,7 @@ class HasilController extends Controller
 
     function export()
     {
-        $data = Hasil::query()->with('mahasiswa')->get();
+        $data = Hasil::query()->with('mahasiswa')->orderBy('nilai', 'DESC')->get();
         $pdf = Pdf::loadView('pdf.export', ['data' => $data]);
         return $pdf->download('hasilPerankingan.pdf');
     }
