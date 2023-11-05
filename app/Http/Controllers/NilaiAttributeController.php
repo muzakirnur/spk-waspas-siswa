@@ -24,7 +24,7 @@ class NilaiAttributeController extends Controller
     {
         $validated = $request->validate([
             'value' => ['required', 'string', 'max:255'],
-            'nilai' => ['required']
+            'nilai' => ['required', 'numeric'],
         ]);
 
         $validated['attribute_id'] = $id;

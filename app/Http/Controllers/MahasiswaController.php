@@ -33,6 +33,7 @@ class MahasiswaController extends Controller
 
     function save(Request $request)
     {
+        $request->validate(['excel' => ['required', 'file', 'mimes:csv,xlsx,xls']]);
         Excel::import(new MahasiswaImport, $request->file('excel'));
         return redirect()->route('mahasiswa.index')->with('success', 'Data Mahasiswa Berhasil diimport!');
     }
