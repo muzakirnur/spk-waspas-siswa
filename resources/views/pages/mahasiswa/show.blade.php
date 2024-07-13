@@ -4,7 +4,7 @@
             <div
                 class="w-full mx-auto xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-                    <h2 class="font-semibold text-slate-800 dark:text-slate-100">Data Mahasiswa</h2>
+                    <h2 class="font-semibold text-slate-800 dark:text-slate-100">Data Siswa</h2>
                 </header>
                 <div class="p-3">
                     <table>
@@ -38,7 +38,7 @@
             <div
                 class="w-full mx-auto xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-                    <h2 class="font-semibold text-slate-800 dark:text-slate-100">Data Nilai {{ $mahasiswa->nama }}
+                    <h2 class="font-semibold text-slate-800 dark:text-slate-100">Data Nilai
                     </h2>
                 </header>
                 <div class="p-3">
