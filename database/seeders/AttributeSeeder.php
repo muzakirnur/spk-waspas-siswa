@@ -22,10 +22,10 @@ class AttributeSeeder extends Seeder
             'Nilai Tes IPA',
             'Nilai Tes IPS',
             'Nilai Tes Agama',
-            'Nilai Tes B. Indonesia',
-            'Nilai Tes B. Inggris',
-            'Nilai Praktek Sholat',
-            "Nilai Praktek Baca Al-Qur'an",
+            'Nilai Tes Bahasa Indonesia',
+            'Nilai Tes Bahasa Inggris',
+            'Nilai Praktek Solat',
+            "Nilai Praktek Baca Quran",
             'Nilai Praktek Hafalan Surat Pendek'
         ];
 

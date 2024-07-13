@@ -22,16 +22,16 @@
                             class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
                             <tr>
                                 <th class="p-2">
-                                    <div class="font-semibold text-left">NIM</div>
+                                    <div class="font-semibold text-left">No Reg</div>
                                 </th>
                                 <th class="p-2">
-                                    <div class="font-semibold text-left">Nama Mahasiswa</div>
+                                    <div class="font-semibold text-left">Nama Siswa</div>
                                 </th>
                                 <th class="p-2">
                                     <div class="font-semibold text-left">Jenis Kelamin</div>
                                 </th>
                                 <th class="p-2">
-                                    <div class="font-semibold text-left">Program Studi</div>
+                                    <div class="font-semibold text-left">Asal Kelas</div>
                                 </th>
                                 <th class="p-2">
                                     <div class="font-semibold text-left">Aksi</div>
@@ -54,8 +54,8 @@
                     serverSide: true,
                     ajax: '{{ url()->current() }}',
                     columns: [{
-                            data: 'nim',
-                            name: 'nim'
+                            data: 'no_reg',
+                            name: 'no_reg'
                         },
                         {
                             data: 'nama',
@@ -66,8 +66,8 @@
                             name: 'jenis_kelamin'
                         },
                         {
-                            data: 'program_studi',
-                            name: 'program_studi'
+                            data: 'asal_kelas',
+                            name: 'asal_kelas'
                         },
                         {
                             data: 'edit',

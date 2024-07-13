@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\MahasiswaImport;
+use App\Imports\SiswaImport;
 use App\Models\Attribute;
 use App\Models\Finansial;
 use App\Models\Mahasiswa;
@@ -42,8 +43,8 @@ class MahasiswaController extends Controller
         $validated = $request->validate([
             'excel' => ['required', 'mimes:xlsx,xls,csv']
         ]);
-        Excel::import(new MahasiswaImport, $request->file('excel'));
-        return redirect()->route('mahasiswa.index')->with('success', 'Data Mahasiswa Berhasil diimport!');
+        Excel::import(new SiswaImport, $request->file('excel'));
+        return redirect()->route('mahasiswa.index')->with('success', 'Data Siswa Berhasil diimport!');
     }
 
     function show($id)
