@@ -30,27 +30,27 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     /* Route for Mahasiswa */
-    Route::get('mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
-    Route::get('mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
-    Route::post('mahasiswa/create', [MahasiswaController::class, 'save'])->name('mahasiswa.save');
-    Route::get('mahasiswa/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
-    Route::post('mahasiswa/delete', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete');
+    Route::get('siswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+    Route::get('siswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+    Route::post('siswa/create', [MahasiswaController::class, 'save'])->name('mahasiswa.save');
+    Route::get('siswa/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
+    Route::post('siswa/delete', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete');
 
     /* Route for Attribute */
-    Route::get('attribute', [AttributeController::class, 'index'])->name('attribute.index');
-    Route::get('attribute/create', [AttributeController::class, 'create'])->name('attribute.create');
-    Route::post('attribute/create', [AttributeController::class, 'save'])->name('attribute.save');
-    Route::get('attribute/edit/{id}', [AttributeController::class, 'edit'])->name('attribute.edit');
-    Route::put('attribute/edit/{id}', [AttributeController::class, 'update'])->name('attribute.update');
-    Route::get('attribute/delete/{id}', [AttributeController::class, 'delete'])->name('attribute.delete');
+    Route::get('kriteria', [AttributeController::class, 'index'])->name('attribute.index');
+    Route::get('kriteria/create', [AttributeController::class, 'create'])->name('attribute.create');
+    Route::post('kriteria/create', [AttributeController::class, 'save'])->name('attribute.save');
+    Route::get('kriteria/edit/{id}', [AttributeController::class, 'edit'])->name('attribute.edit');
+    Route::put('kriteria/edit/{id}', [AttributeController::class, 'update'])->name('attribute.update');
+    Route::get('kriteria/delete/{id}', [AttributeController::class, 'delete'])->name('attribute.delete');
 
     /* Route for Nilai Attribute */
-    Route::get('nilai-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
-    Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');
-    Route::post('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'save'])->name('nilai-attribute.save');
-    Route::get('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'edit'])->name('nilai-attribute.edit');
-    Route::put('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'update'])->name('nilai-attribute.update');
-    Route::post('nilai-attribute/delete', [NilaiAttributeController::class, 'delete'])->name('nilai-attribute.delete');
+    // Route::get('nilai-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
+    // Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');
+    // Route::post('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'save'])->name('nilai-attribute.save');
+    // Route::get('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'edit'])->name('nilai-attribute.edit');
+    // Route::put('nilai-attribute/edit/{id}', [NilaiAttributeController::class, 'update'])->name('nilai-attribute.update');
+    // Route::post('nilai-attribute/delete', [NilaiAttributeController::class, 'delete'])->name('nilai-attribute.delete');
 
     /* Route for Hasil */
     Route::get('hasil', [HasilController::class, 'index'])->name('hasil.index');

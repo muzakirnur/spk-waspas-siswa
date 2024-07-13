@@ -49,10 +49,10 @@ class MahasiswaController extends Controller
     function destroy(Request $request):void
     {
         $mahasiswa = Mahasiswa::findOrFail($request->id);
-        $financials = Finansial::query()->where('mahasiswa_id', $mahasiswa->id)->get();
-        foreach($financials as $financial){
-            $financial->delete();
-        }
-        $mahasiswa->delete();
+        // $financials = Finansial::query()->where('mahasiswa_id', $mahasiswa->id)->get();
+        // foreach($financials as $financial){
+        //     $financial->delete();
+        // }
+        // $mahasiswa->delete();
     }
 }

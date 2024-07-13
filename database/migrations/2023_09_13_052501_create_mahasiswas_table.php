@@ -18,11 +18,7 @@ return new class extends Migration
             $table->string('nim');
             $table->string('nama');
             $table->string('jenis_kelamin');
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->text('alamat');
-            $table->string('asal_sekolah');
-            $table->string('program_studi');
+            $table->string('asal_kelas');
             $table->timestamps();
         });
     }

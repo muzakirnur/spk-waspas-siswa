@@ -37,7 +37,7 @@ class AttributeController extends Controller
 
         Attribute::create($validated);
 
-        return redirect()->route('attribute.index')->with('success', 'Attribute Berhasil ditambahkan!');
+        return redirect()->route('attribute.index')->with('success', 'Kriteria Berhasil ditambahkan!');
     }
 
     function edit($id) 
@@ -55,7 +55,7 @@ class AttributeController extends Controller
             'bobot' => ['required', 'digits_between:1,100'],
         ]);
         $attribute->update($validated);
-        return redirect()->route('attribute.index')->with('success', 'Attribute berhasil diupdate!');
+        return redirect()->route('attribute.index')->with('success', 'Kriteria berhasil diupdate!');
     }
 
     function delete($id)
