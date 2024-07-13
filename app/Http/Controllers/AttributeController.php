@@ -11,7 +11,7 @@ class AttributeController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $attributes = Attribute::query();
+            $attributes = Attribute::query()->orderBy('kode', 'asc');
             return DataTables::eloquent($attributes)
                 ->addColumn('edit', '<a href="{{route("attribute.edit", $id)}}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white mr-2">
                 <i class="fa-solid fa-edit"></i></a><button onclick="showModals({{$id}})" class="btn bg-red-600 hover:bg-red-700 text-white">
@@ -32,7 +32,7 @@ class AttributeController extends Controller
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'kode' => ['required', 'unique:attributes'],
-            'bobot' => ['required', 'digits_between:1,100'],
+            'bobot' => ['required','numeric', 'min:0.1', 'max:1'],
         ]);
 
         Attribute::create($validated);
@@ -52,7 +52,7 @@ class AttributeController extends Controller
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'kode' => ['required', 'unique:attributes,kode,' . $attribute->id],
-            'bobot' => ['required', 'digits_between:1,100'],
+            'bobot' => ['required','numeric', 'min:0.1', 'max:1'],
         ]);
         $attribute->update($validated);
         return redirect()->route('attribute.index')->with('success', 'Kriteria berhasil diupdate!');

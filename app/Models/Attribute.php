@@ -12,11 +12,6 @@ class Attribute extends Model
 
     protected $guarded = [];
 
-    function normalizedAttribute()
-    {
-        return $this->bobot/100;
-    }
-
     public function nilaiSiswa(): HasMany
     {
         return $this->hasMany(NilaiSiswa::class);

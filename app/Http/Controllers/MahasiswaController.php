@@ -33,6 +33,12 @@ class MahasiswaController extends Controller
 
     function save(Request $request)
     {
+        $kriteria = Attribute::query()->get();
+        if(count($kriteria) == 0){
+            return redirect()->refresh()->with('error', 'Data Kriteria belum ada!');
+        }elseif(count($kriteria) < 11){
+            return redirect()->refresh()->with('error', 'Data kriteria belum lengkap!');
+        }
         $validated = $request->validate([
             'excel' => ['required', 'mimes:xlsx,xls,csv']
         ]);

@@ -10,7 +10,7 @@
                     <form action="{{ route('mahasiswa.save') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
-                            <x-jet-label for="excel" value="{{ __('Masukkan Data Mahasiswa') }}" />
+                            <x-jet-label for="excel" value="{{ __('Masukkan Data Siswa') }}" />
                             <x-jet-input id="excel" type="file" name="excel" :value="old('excel')" required
                                 autofocus />
                         </div>
