@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\NilaiAttributeController;
 use App\Http\Controllers\PerhitunganController;
@@ -44,6 +45,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::put('kriteria/edit/{id}', [AttributeController::class, 'update'])->name('attribute.update');
     Route::get('kriteria/delete/{id}', [AttributeController::class, 'delete'])->name('attribute.delete');
 
+    Route::get('jurusan', [JurusanController::class, 'index'])->name('jurusan.index');
+    Route::get('jurusan/create', [JurusanController::class, 'create'])->name('jurusan.create');
+    Route::post('jurusan/create', [JurusanController::class, 'save'])->name('jurusan.save');
+    Route::get('jurusan/edit/{id}', [JurusanController::class, 'edit'])->name('jurusan.edit');
+    Route::put('jurusan/edit/{id}', [JurusanController::class, 'update'])->name('jurusan.update');
+    Route::get('jurusan/delete/{id}', [JurusanController::class, 'destroy'])->name('jurusan.delete');
     /* Route for Nilai Attribute */
     // Route::get('nilai-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
     // Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');

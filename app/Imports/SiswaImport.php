@@ -24,11 +24,13 @@ class SiswaImport implements ToCollection, WithHeadingRow
                         'asal_kelas' => $row['asal_kelas'],
                     ]);
                     foreach($attribute as $kriteria){
-                        NilaiSiswa::create([
-                            'mahasiswa_id' => $siswa->id,
-                            'attribute_id' => $kriteria->id,
-                            'nilai' => $row[strtolower(preg_replace('/\s+/', '_', $kriteria->nama))],
-                        ]);
+                        if($row[preg_replace('/\s+/', '_', $kriteria->nama)] != null){
+                            NilaiSiswa::create([
+                                'mahasiswa_id' => $siswa->id,
+                                'attribute_id' => $kriteria->id,
+                                'nilai' => $row[strtolower(preg_replace('/\s+/', '_', $kriteria->nama))],
+                            ]);
+                        }
                     }
                 }
             }
