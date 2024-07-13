@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Attribute extends Model
 {
@@ -11,14 +12,13 @@ class Attribute extends Model
 
     protected $guarded = [];
 
-    function getAllNilaiAttribute()
-    {
-        $data = NilaiAttribute::query()->where('attribute_id', $this->id)->get();
-        return $data;
-    }
-
     function normalizedAttribute()
     {
         return $this->bobot/100;
+    }
+
+    public function nilaiSiswa(): HasMany
+    {
+        return $this->hasMany(NilaiSiswa::class);
     }
 }
