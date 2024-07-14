@@ -20,6 +20,6 @@ class NilaiSiswa extends Model
     public function calculateMatriks(Attribute $attribute)
     {
         $max = $this->where('attribute_id', $attribute->id)->max('nilai');
-        return number_format($this->nilai/$max, 2);
+        return $this->nilai/$max;
     }
 }
