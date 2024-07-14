@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-        
+
         <!-- Welcome banner -->
         <x-dashboard.welcome-banner />
 
@@ -22,23 +22,38 @@
                 <!-- Add view button -->
                 <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
-                        <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
+                        <path
+                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
                     <span class="hidden xs:block ml-2">Add View</span>
                 </button>
-                
+
             </div>
 
         </div> --}}
-        
+
         <!-- Cards -->
         <div class="grid grid-cols-12 gap-6">
 
             {{-- Users Count --}}
-            {{-- <x-dashboard.dashboard-card-users :mahasiswa="$data['mahasiswa']"/> --}}
+            <x-dashboard.dashboard-card-users :mahasiswa="$data['mahasiswa']" />
+            <x-dashboard.dashboard-card-jurusan :jurusan="$data['jurusan']" />
+            <x-dashboard.dashboard-card-kriteria :kriteria="$data['kriteria']" />
 
             <!-- Line chart (Acme Plus) -->
-            {{-- <x-dashboard.dashboard-card-01 :dataFeed="$dataFeed" /> --}}
+            {{-- <x-dashboard.dashboard-card-01 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-02 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-03 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-04 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-05 :dataFeed="$dataFeed" /> --}}
+            {{-- <x-dashboard.dashboard-card-06 :dataFeed="$dataFeed" /> --}}
+            {{-- <x-dashboard.dashboard-card-07 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-08 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-09 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-10 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-11 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-12 :dataFeed="$dataFeed" />
+            <x-dashboard.dashboard-card-13 :dataFeed="$dataFeed" /> --}}
 
             <!-- Line chart (Acme Advanced) -->
             {{-- <x-dashboard.dashboard-card-02 :dataFeed="$dataFeed" /> --}}

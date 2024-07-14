@@ -1,11 +1,13 @@
 <?php
 
-    namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Http;
-    use App\Models\DataFeed;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use App\Models\DataFeed;
+use App\Models\Jurusan;
 use App\Models\Mahasiswa;
+use App\Models\Attribute;
 use Carbon\Carbon;
 
     class DashboardController extends Controller
@@ -20,6 +22,8 @@ use Carbon\Carbon;
         {
             $dataFeed = new DataFeed();
             $data['mahasiswa'] = Mahasiswa::count();
+            $data['jurusan'] = Jurusan::count();
+            $data['kriteria'] = Attribute::count();
             return view('pages/dashboard/dashboard', compact('dataFeed', 'data'));
         }
     }

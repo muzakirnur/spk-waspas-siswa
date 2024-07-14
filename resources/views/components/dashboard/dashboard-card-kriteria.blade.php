@@ -3,12 +3,12 @@
     <div class="px-5 pt-5">
         <header class="flex justify-between items-start mb-2">
             <!-- Icon -->
-            <i class="fa-solid fa-users text-lg"></i>
+            <i class="fa-solid fa-dollar text-lg"></i>
             <!-- Menu button -->
             <div class="relative inlin-flex">
-                <span class="text-lg font-semibold text-black dark:text-slate-300">Siswa</span>
+                <span class="text-lg font-semibold text-black dark:text-slate-300">Kriteria</span>
             </div>
         </header>
-        <h2 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">{{ $mahasiswa }}</h2>
+        <h2 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">{{ $kriteria }}</h2>
     </div>
 </div>
