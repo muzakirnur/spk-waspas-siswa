@@ -39,12 +39,12 @@
                 <ul class="mt-3">
                     <!-- Dashboard -->
                     <li
-                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'bg-slate-900' }} @endif">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'hover:text-slate-200' }} @endif"
+                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['dashboard'])) {{ 'bg-slate-900' }} @endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['dashboard'])) {{ 'hover:text-slate-200' }} @endif"
                             href="{{ route('dashboard') }}">
                             <div class="flex items-center">
                                 <i
-                                    class="fa-solid fa-house text-xl {{ in_array(Request::segment(1), ['dashboard']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
+                                    class="fa-solid fa-house text-xl {{ in_array(Request::segment(2), ['dashboard']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
                                 <span
                                     class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                             </div>
@@ -52,24 +52,24 @@
                     </li>
                     <!-- Attribute -->
                     <li
-                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['kriteria'])) {{ 'bg-slate-900' }} @endif">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['kriteria'])) {{ 'hover:text-slate-200' }} @endif"
+                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['kriteria'])) {{ 'bg-slate-900' }} @endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['kriteria'])) {{ 'hover:text-slate-200' }} @endif"
                             href="{{ route('attribute.index') }}">
                             <div class="flex items-center">
                                 <i
-                                    class="fa-solid fa-dollar-sign text-xl {{ in_array(Request::segment(1), ['kriteria']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
+                                    class="fa-solid fa-dollar-sign text-xl {{ in_array(Request::segment(2), ['kriteria']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
                                 <span
                                     class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Kriteria</span>
                             </div>
                         </a>
                     </li>
                     <li
-                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['siswa'])) {{ 'bg-slate-900' }} @endif">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['siswa'])) {{ 'hover:text-slate-200' }} @endif"
+                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['siswa'])) {{ 'bg-slate-900' }} @endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['siswa'])) {{ 'hover:text-slate-200' }} @endif"
                             href="{{ route('mahasiswa.index') }}">
                             <div class="flex items-center">
                                 <i
-                                    class="fa-solid fa-users text-xl {{ in_array(Request::segment(1), ['siswa']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
+                                    class="fa-solid fa-users text-xl {{ in_array(Request::segment(2), ['siswa']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
                                 <span
                                     class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Data
                                     Siswa</span>
@@ -77,12 +77,12 @@
                         </a>
                     </li>
                     <li
-                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['jurusan'])) {{ 'bg-slate-900' }} @endif">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['jurusan'])) {{ 'hover:text-slate-200' }} @endif"
+                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['jurusan'])) {{ 'bg-slate-900' }} @endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['jurusan'])) {{ 'hover:text-slate-200' }} @endif"
                             href="{{ route('jurusan.index') }}">
                             <div class="flex items-center">
                                 <i
-                                    class="fa-solid fa-paper-plane text-xl {{ in_array(Request::segment(1), ['jurusan']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
+                                    class="fa-solid fa-paper-plane text-xl {{ in_array(Request::segment(2), ['jurusan']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
                                 <span
                                     class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Jurusan</span>
                             </div>
@@ -90,12 +90,12 @@
                     </li>
                     <!-- Perhitungan -->
                     <li
-                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['perhitungan'])) {{ 'bg-slate-900' }} @endif">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['perhitungan'])) {{ 'hover:text-slate-200' }} @endif"
+                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['perhitungan'])) {{ 'bg-slate-900' }} @endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['perhitungan'])) {{ 'hover:text-slate-200' }} @endif"
                             href="{{ route('perhitungan.index') }}">
                             <div class="flex items-center">
                                 <i
-                                    class="fa-solid fa-calculator text-xl {{ in_array(Request::segment(1), ['perhitungan']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
+                                    class="fa-solid fa-calculator text-xl {{ in_array(Request::segment(2), ['perhitungan']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
                                 <span
                                     class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Perhitungan
                                     WASPAS</span>
@@ -104,12 +104,12 @@
                     </li>
                     <!-- Hasil Perangkingan -->
                     <li
-                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['hasil'])) {{ 'bg-slate-900' }} @endif">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hasil'])) {{ 'hover:text-slate-200' }} @endif"
+                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['hasil'])) {{ 'bg-slate-900' }} @endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['hasil'])) {{ 'hover:text-slate-200' }} @endif"
                             href="{{ route('hasil.index') }}">
                             <div class="flex items-center">
                                 <i
-                                    class="fa-solid fa-square-poll-vertical text-xl {{ in_array(Request::segment(1), ['hasil']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
+                                    class="fa-solid fa-square-poll-vertical text-xl {{ in_array(Request::segment(2), ['hasil']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
                                 <span
                                     class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Hasil
                                     Perangkingan</span>

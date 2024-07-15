@@ -4,11 +4,14 @@ use App\Http\Controllers\AttributeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HasilController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\NilaiAttributeController;
 use App\Http\Controllers\PerhitunganController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +24,11 @@ use App\Http\Controllers\PerhitunganController;
 |
 */
 
-Route::redirect('/', 'login');
-
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login')->middleware('guest');
+Route::get('siswa', [GuestController::class, 'siswa'])->name('guest.siswa.index');
+Route::get('hasil-penjurusan', [GuestController::class, 'result'])->name('guest.result.index');
+Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function () {
 
     // Route for the getting the data feed
     Route::get('/json-data-feed', [DataFeedController::class, 'getDataFeed'])->name('json_data_feed');
