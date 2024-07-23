@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Models\Mahasiswa;
 use App\Models\Attribute;
 use App\Models\Hasil;
+use App\Models\Jurusan;
 use Illuminate\Validation\ValidationException;
 
 class WaspasRepository
@@ -71,6 +72,44 @@ class WaspasRepository
         }catch(\Exception $e){
             throw ValidationException::withMessages([$e->getMessage()]);
         }
+    }
+
+    public static function getJurusanById(Mahasiswa $mahasiswa): string
+    {
+        $quota = WaspasRepository::setStartEnd();
+        $hasil = Hasil::query()->orderBy('nilai', 'DESC')->get();
+        $jurusan = Jurusan::query()->orderBy('priority', 'asc')->get();
+        $ranks = $hasil->where('id', $mahasiswa->hasil->id)->keys()->first() +1;
+        foreach($quota as $row){
+            if($ranks >= $row['start'] && $ranks <= $row['end']){
+                $model = $jurusan->where('id', $row['id'])->first();
+                return $model->nama;
+            }
+        }
+    }
+
+    public static function setStartEnd(): array
+    {
+        $quota = [];
+        $jurusan = Jurusan::query()->orderBy('priority', 'asc')->get();
+        for($i=0;$i<count($jurusan);$i++){
+            if(count($quota) == 0){
+                $array = [
+                    'id' => $jurusan[$i]->id,
+                    'start' => 1,
+                    'end' => $jurusan[$i]->quota,
+                ];
+            }else{
+                $prevArray = $quota[$i-1];
+                $array = [
+                    'id' => $jurusan[$i]->id,
+                    'start' => $prevArray['end'] +1,
+                    'end' => $prevArray['end'] + $jurusan[$i]->quota,
+                ];
+            }
+            $quota[$i] = $array;
+        }
+        return $quota;
     }
 
 }

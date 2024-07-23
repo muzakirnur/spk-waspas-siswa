@@ -7,6 +7,10 @@
             <p class="text-gray-700">NAMA : <span class="font-semibold">{{ $data->nama }}</span></p>
             <p class="text-gray-700">JENIS KELAMIN : <span class="font-semibold">{{ $data->jenis_kelamin }}</span></p>
             <p class="text-gray-700">KELAS : <span class="font-semibold">{{ $data->asal_kelas }}</span></p>
+            @if ($data->hasil)
+                <p class="text-gray-700">PENJURUSAN : <span class="font-semibold">{{ $jurusan }}</span>
+                </p>
+            @endif
         </div>
         <div class="w-full border border-gray-100 shadow-sm">
             <div class="p-2">

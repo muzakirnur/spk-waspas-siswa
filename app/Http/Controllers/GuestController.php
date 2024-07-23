@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hasil;
 use App\Models\Mahasiswa;
+use App\Repository\WaspasRepository;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -15,7 +17,8 @@ class GuestController extends Controller
         if(!$data){
             return redirect()->route('home')->with('error', 'Data tidak ditemukan!');
         }
-        return view('pages.frontend.siswa.index', compact('data'));
+        $jurusan = WaspasRepository::getJurusanById($data);
+        return view('pages.frontend.siswa.index', compact('data', 'jurusan'));
     }
 
     public function result()

@@ -6,6 +6,5 @@
                 WASPAS</p>
         </div>
         <livewire:hasil.table />
-
     </div>
 </x-guest-layout>
