@@ -20,7 +20,8 @@
                         </div>
                         <div class="mb-4">
                             <x-jet-label for="bobot" value="{{ __('Bobot Kriteria') }}" />
-                            <x-jet-input id="bobot" type="number" name="bobot" :value="old('bobot')" required />
+                            <x-jet-input id="bobot" type="number" name="bobot" :value="old('bobot')" step="0.01"
+                                required />
                         </div>
                         <x-jet-validation-errors class="mb-4" />
                         <div class="flex flex-wrap justify-between">
