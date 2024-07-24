@@ -246,13 +246,15 @@
             </div>
         </div> --}}
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
-            <form action="{{ route('perhitungan.save') }}" method="POST">
-                @csrf
-                <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                    <i class="fa-solid fa-floppy-disk"></i>
-                    <span class="hidden xs:block ml-2">Simpan Hasil</span>
-                </button>
-            </form>
+            @if ($checkHasil < 1)
+                <form action="{{ route('perhitungan.save') }}" method="POST">
+                    @csrf
+                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span class="hidden xs:block ml-2">Simpan Hasil</span>
+                    </button>
+                </form>
+            @endif
         </div>
     </div>
 </x-app-layout>
