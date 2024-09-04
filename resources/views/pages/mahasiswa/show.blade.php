@@ -46,9 +46,9 @@
                         <tbody>
                             @foreach ($mahasiswa->nilaiSiswa as $row)
                                 <tr class="w-full">
-                                    <td class="w-1/4">{{ $row->attribute->nama }}</td>
+                                    <td class="w-1/4">{{ $row->nilai->nama }}</td>
                                     <td class="w-1/4 text-right">:</td>
-                                    <td>{{ $row->nilai }}</td>
+                                    <td>{{ $row->poin }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

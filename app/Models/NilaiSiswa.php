@@ -17,9 +17,14 @@ class NilaiSiswa extends Model
         return $this->belongsTo(Attribute::class);
     }
 
+    public function nilai()
+    {
+        return $this->belongsTo(Nilai::class);
+    }
+
     public function calculateMatriks(Attribute $attribute)
     {
-        $max = $this->where('attribute_id', $attribute->id)->max('nilai');
+        $max = $this->where('attribute_id', $attribute->id)->max('poin');
         return $this->nilai/$max;
     }
 }

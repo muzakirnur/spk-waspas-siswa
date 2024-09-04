@@ -24,7 +24,7 @@ class NilaiSeeder extends Seeder
             'Nilai Tes Agama',
             'Nilai Tes Bahasa Indonesia',
             'Nilai Tes Bahasa Inggris',
-            'Nilai Praktek Sholat',
+            'Nilai Praktek Solat',
             'Nilai Praktek Baca Quran',
             'Nilai Praktek Hafalan Surat Pendek'
         ];

@@ -5,7 +5,7 @@ namespace App\Imports;
 use App\Models\Mahasiswa;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
-use App\Models\Attribute;
+use App\Models\Nilai;
 use App\Models\NilaiSiswa;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
@@ -14,7 +14,7 @@ class SiswaImport implements ToCollection, WithHeadingRow
     public function collection(Collection $collection)
     {
         try{
-            $attribute = Attribute::query()->get();
+            $nilai = Nilai::query()->get();
             foreach($collection as $row){
                 if($row['nama'] != null){
                     $siswa = Mahasiswa::create([
@@ -23,12 +23,12 @@ class SiswaImport implements ToCollection, WithHeadingRow
                         'jenis_kelamin' => $row['jenis_kelamin'],
                         'asal_kelas' => $row['asal_kelas'],
                     ]);
-                    foreach($attribute as $kriteria){
+                    foreach($nilai as $kriteria){
                         if($row[preg_replace('/\s+/', '_', strtolower($kriteria->nama))] != null){
                             NilaiSiswa::create([
                                 'mahasiswa_id' => $siswa->id,
-                                'attribute_id' => $kriteria->id,
-                                'nilai' => $row[strtolower(preg_replace('/\s+/', '_', strtolower($kriteria->nama)))],
+                                'nilai_id' => $kriteria->id,
+                                'poin' => $row[strtolower(preg_replace('/\s+/', '_', strtolower($kriteria->nama)))],
                             ]);
                         }
                     }

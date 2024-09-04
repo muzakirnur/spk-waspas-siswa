@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('mahasiswa_id')->constrained();
             $table->foreignId('nilai_id')->constrained();
-            $table->integer('nilai');
+            $table->integer('poin');
             $table->timestamps();
         });
     }
