@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             JurusanSeeder::class,
             NilaiSeeder::class,
-            AttributeSeeder::class
+            AttributeSeeder::class,
+            SubKriteriaSeeder::class
         ]);
     }
 }

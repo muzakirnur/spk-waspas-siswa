@@ -60,6 +60,7 @@
                 </div>
             </div>
         </div>
+        {{ $data->links() }}
     </div>
     @push('custom-scripts')
         <script type="text/javascript">
