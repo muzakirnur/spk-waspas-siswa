@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DashboardTableSeeder::class,
             UserSeeder::class,
-            AttributeSeeder::class,
             JurusanSeeder::class,
+            NilaiSeeder::class
         ]);
     }
 }
