@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\NilaiAttributeController;
+use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PerhitunganController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -56,6 +57,11 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function
     Route::get('jurusan/edit/{id}', [JurusanController::class, 'edit'])->name('jurusan.edit');
     Route::put('jurusan/edit/{id}', [JurusanController::class, 'update'])->name('jurusan.update');
     Route::get('jurusan/delete/{id}', [JurusanController::class, 'destroy'])->name('jurusan.delete');
+
+    Route::get('nilai', [NilaiController::class, 'index'])->name('nilai.index');
+    Route::get('nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
+    Route::post('nilai/create', [NilaiController::class, 'save'])->name('nilai.save');
+    Route::post('nilai/delete', [NilaiController::class, 'destroy'])->name('nilai.delete');
     /* Route for Nilai Attribute */
     // Route::get('nilai-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
     // Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');
