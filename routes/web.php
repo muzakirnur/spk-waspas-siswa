@@ -64,7 +64,11 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function
     Route::post('nilai/create', [NilaiController::class, 'save'])->name('nilai.save');
     Route::post('nilai/delete', [NilaiController::class, 'destroy'])->name('nilai.delete');
 
-    Route::get('sub-kriteria', [SubAttributeController::class], 'index')->name('sub-attribute.index');
+    Route::get('sub-kriteria', [SubAttributeController::class, 'index'])->name('sub-attribute.index');
+    Route::get('sub-kriteria/create', [SubAttributeController::class, 'create'])->name('sub-attribute.create');
+    Route::post('sub-kriteria/save', [SubAttributeController::class, 'save'])->name('sub-attribute.save');
+    Route::post('sub-kriteria/delete', [SubAttributeController::class, 'destroy'])->name('sub-attribute.delete');
+
     /* Route for Nilai Attribute */
     // Route::get('nilai-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
     // Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');

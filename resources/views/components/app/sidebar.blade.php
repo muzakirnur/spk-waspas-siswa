@@ -76,6 +76,20 @@
                             </div>
                         </a>
                     </li>
+                    <!-- SubAttribute -->
+                    <li
+                        class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['sub-kriteria'])) {{ 'bg-slate-900' }} @endif">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['sub-kriteria'])) {{ 'hover:text-slate-200' }} @endif"
+                            href="{{ route('sub-attribute.index') }}">
+                            <div class="flex items-center">
+                                <i
+                                    class="fa-solid fa-list-ol text-xl {{ in_array(Request::segment(2), ['sub-kriteria']) ? 'text-indigo-500' : 'text-slate-600' }}"></i>
+                                <span
+                                    class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Sub
+                                    Kriteria</span>
+                            </div>
+                        </a>
+                    </li>
                     <li
                         class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(2), ['siswa'])) {{ 'bg-slate-900' }} @endif">
                         <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['siswa'])) {{ 'hover:text-slate-200' }} @endif"

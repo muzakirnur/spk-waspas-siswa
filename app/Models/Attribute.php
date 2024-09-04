@@ -12,8 +12,8 @@ class Attribute extends Model
 
     protected $guarded = [];
 
-    public function nilaiSiswa(): HasMany
+    public function subAttribute()
     {
-        return $this->hasMany(NilaiSiswa::class);
+        return $this->hasMany(SubAttribute::class);
     }
 }

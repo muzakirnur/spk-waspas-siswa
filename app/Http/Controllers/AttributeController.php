@@ -32,7 +32,7 @@ class AttributeController extends Controller
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'kode' => ['required', 'unique:attributes'],
-            'bobot' => ['required','numeric', 'min:0.1', 'max:1'],
+            'bobot' => ['required','numeric'],
         ]);
 
         Attribute::create($validated);
@@ -52,7 +52,7 @@ class AttributeController extends Controller
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'kode' => ['required', 'unique:attributes,kode,' . $attribute->id],
-            'bobot' => ['required','numeric', 'min:0.1', 'max:1'],
+            'bobot' => ['required','numeric'],
         ]);
         $attribute->update($validated);
         return redirect()->route('attribute.index')->with('success', 'Kriteria berhasil diupdate!');

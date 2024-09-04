@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sub_attributes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('jurusan_id')->constrained();
             $table->foreignId('attribute_id')->constrained();
             $table->foreignId('nilai_id')->constrained();
             $table->timestamps();

@@ -20,4 +20,9 @@ class SubAttribute extends Model
     {
         return $this->belongsTo(Attribute::class);
     }
+
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class);
+    }
 }
