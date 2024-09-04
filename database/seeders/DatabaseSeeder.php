@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             DashboardTableSeeder::class,
             UserSeeder::class,
             JurusanSeeder::class,
-            NilaiSeeder::class
+            NilaiSeeder::class,
+            AttributeSeeder::class
         ]);
     }
 }

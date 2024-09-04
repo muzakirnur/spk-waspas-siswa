@@ -12,6 +12,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\NilaiAttributeController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PerhitunganController;
+use App\Http\Controllers\SubAttributeController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -62,6 +63,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function
     Route::get('nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
     Route::post('nilai/create', [NilaiController::class, 'save'])->name('nilai.save');
     Route::post('nilai/delete', [NilaiController::class, 'destroy'])->name('nilai.delete');
+
+    Route::get('sub-kriteria', [SubAttributeController::class], 'index')->name('sub-attribute.index');
     /* Route for Nilai Attribute */
     // Route::get('nilai-attribute', [NilaiAttributeController::class, 'index'])->name('nilai-attribute.index');
     // Route::get('nilai-attribute/create/{id}', [NilaiAttributeController::class, 'create'])->name('nilai-attribute.create');
