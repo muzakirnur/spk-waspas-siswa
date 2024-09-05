@@ -24,8 +24,7 @@ class AttributeSeeder extends Seeder
         $bobot = [
            4,
            3,
-           1.5,
-           1.5
+           3
         ];
         $count = 0;
         foreach($data as $row){

@@ -58,7 +58,7 @@ class SubKriteriaSeeder extends Seeder
         ]);
         SubAttribute::create([
             'jurusan_id' => 2,
-            'attribute_id' => 1,
+            'attribute_id' => 3,
             'nilai_id' => 8
         ]);
 

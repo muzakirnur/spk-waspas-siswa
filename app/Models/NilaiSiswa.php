@@ -22,9 +22,9 @@ class NilaiSiswa extends Model
         return $this->belongsTo(Nilai::class);
     }
 
-    public function calculateMatriks(Attribute $attribute)
+    public function calculateMatriks(Nilai $nilai)
     {
-        $max = $this->where('attribute_id', $attribute->id)->max('poin');
-        return $this->nilai/$max;
+        $max = $this->where('nilai_id', $nilai->id)->max('poin');
+        return $this->poin/$max;
     }
 }

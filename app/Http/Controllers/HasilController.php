@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hasil;
+use App\Models\HasilQi;
 use App\Models\Jurusan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -17,10 +18,10 @@ class HasilController extends Controller
             $hasils = Hasil::query()->with('mahasiswa');
             return DataTables::eloquent($hasils)
                 ->order(function($query){
-                    $query->orderBy('nilai', 'DESC');
+                    $query->orderBy('rank', 'DESC');
                 })
-                ->orderColumn('nilai', function($query, $order){
-                    $query->orderBy('nilai', $order);
+                ->orderColumn('rank', function($query, $order){
+                    $query->orderBy('rank', $order);
                 })
                 ->editColumn('status', function($hasils) use ($prioritas){
                     // return $DT_RowIndex;

@@ -49,110 +49,126 @@
                 </div>
             </div>
         </div>
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
-            <div
-                class="w-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
-                <div class="flex flex-wrap justify-between">
-                    <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-                        <h2 class="font-semibold text-slate-800 dark:text-slate-100">Data Awal</h2>
-                    </header>
-                </div>
-                <div class="p-3">
-                    <!-- Table -->
-                    <div class="overflow-x-auto">
-                        <table id="tableIndex" class="table-auto w-full dark:text-slate-300 mb-4">
-                            <!-- Table header -->
-                            <thead
-                                class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
-                                <tr>
-                                    <th rowspan="2" class="text-left">Nama Mahasiswa</th>
-                                    <th colspan="{{ $data['attributes']->count() }}" scope="colgroup">Nilai Bobot
-                                        Kriteria</th>
-                                </tr>
-                                <tr>
-                                    @foreach ($data['attributes'] as $attribute)
-                                        <th scope="col">{{ $attribute->kode }}</th>
-                                    @endforeach
-                                </tr>
-                            </thead>
-                            <!-- Table body -->
-                            <tbody class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700">
-                                <!-- Row -->
-                                @foreach ($data['mahasiswas'] as $mahasiswa)
+        @foreach ($data['jurusan'] as $jurusan)
+            <div class="sm:flex sm:justify-between sm:items-center mb-8">
+                <div
+                    class="w-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-wrap justify-between bg-slate-200">
+                        <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
+                            <h2 class="font-semibold text-slate-800 dark:text-slate-100">Data Awal {{ $jurusan->nama }}
+                            </h2>
+                        </header>
+                    </div>
+                    <div class="p-3">
+                        <!-- Table -->
+                        <div class="overflow-x-auto">
+                            <table id="tableIndex" class="table-auto w-full dark:text-slate-300 mb-4">
+                                <!-- Table header -->
+                                <thead
+                                    class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
                                     <tr>
-                                        <th scope="row" class="p-2">
-                                            <div class="text-left">
-                                                {{ $mahasiswa->nama }}
-                                            </div>
-                                        </th>
+                                        <th rowspan="2" class="text-left border">Nama Siswa</th>
+                                        <th class="border"
+                                            colspan="{{ count($data['sub']->where('jurusan_id', $jurusan->id)) }}"
+                                            scope="colgroup">Nilai
+                                            Bobot
+                                            Kriteria</th>
+                                    </tr>
+                                    <tr>
                                         @foreach ($data['attributes'] as $attribute)
-                                            <td class="p-2">
-                                                <div class="text-center">
-                                                    {{ $mahasiswa->nilaiSiswa->where('attribute_id', $attribute->id)->first()?->nilai }}
-                                                </div>
-                                            </td>
+                                            <th scope="col" class="border"
+                                                colspan="{{ count($data['sub']->where('jurusan_id', $jurusan->id)->where('attribute_id', $attribute->id)) }}">
+                                                {{ $attribute->kode }}
+                                            </th>
                                         @endforeach
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        {{ $data['mahasiswas']->links() }}
+                                </thead>
+                                <!-- Table body -->
+                                <tbody class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700">
+                                    <!-- Row -->
+                                    @foreach ($data['mahasiswas'] as $mahasiswa)
+                                        <tr>
+                                            <th scope="row" class="p-2">
+                                                <div class="text-left">
+                                                    {{ $mahasiswa->nama }}
+                                                </div>
+                                            </th>
+                                            @foreach ($data['sub']->where('jurusan_id', $jurusan->id) as $subKriteria)
+                                                <td class="p-2" class="text-center">
+                                                    <div class="text-center">
+                                                        {{ $mahasiswa->nilaiSiswa->where('nilai_id', $subKriteria->nilai_id)->first()?->poin }}
+                                                    </div>
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $data['mahasiswas']->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
-            <div
-                class="w-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
-                <div class="flex flex-wrap justify-between">
-                    <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-                        <h2 class="font-semibold text-slate-800 dark:text-slate-100">Normalisasi Matriks
-                        </h2>
-                    </header>
-                </div>
-                <div class="p-3">
-                    <!-- Table -->
-                    <div class="overflow-x-auto">
-                        <table id="tableIndex" class="table-auto w-full dark:text-slate-300 mb-4">
-                            <!-- Table header -->
-                            <thead
-                                class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
-                                <tr>
-                                    <th rowspan="2" class="text-left">Nama Siswa</th>
-                                    <th colspan="{{ $data['attributes']->count() }}" scope="colgroup">Attribute</th>
-                                </tr>
-                                <tr>
-                                    @foreach ($data['attributes'] as $attribute)
-                                        <th scope="col">{{ $attribute->kode }}</th>
-                                    @endforeach
-                                </tr>
-                            </thead>
-                            <!-- Table body -->
-                            <tbody class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700">
-                                <!-- Row -->
-                                @foreach ($data['mahasiswas'] as $mahasiswa)
+        @endforeach
+        @foreach ($data['jurusan'] as $jurusan)
+            <div class="sm:flex sm:justify-between sm:items-center mb-8">
+                <div
+                    class="w-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-wrap justify-between bg-green-200">
+                        <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
+                            <h2 class="font-semibold text-slate-800 dark:text-slate-100">Normalisasi Matriks
+                                {{ $jurusan->nama }}
+                            </h2>
+                        </header>
+                    </div>
+                    <div class="p-3">
+                        <!-- Table -->
+                        <div class="overflow-x-auto">
+                            <table id="tableIndex" class="table-auto w-full dark:text-slate-300 mb-4">
+                                <!-- Table header -->
+                                <thead
+                                    class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
                                     <tr>
-                                        <th scope="row" class="p-2">
-                                            <div class="text-left">
-                                                {{ $mahasiswa->nama }}
-                                            </div>
+                                        <th rowspan="2" class="text-left border">Nama Siswa</th>
+                                        <th colspan="{{ count($data['sub']->where('jurusan_id', $jurusan->id)) }}"
+                                            class="border" scope="colgroup">Attribute
                                         </th>
+                                    </tr>
+                                    <tr>
                                         @foreach ($data['attributes'] as $attribute)
-                                            <td class="p-2">
-                                                <div class="text-center">
-                                                    {{ $mahasiswa->nilaiSiswa->where('attribute_id', $attribute->id)->first()?->calculateMatriks($attribute) }}
-                                                </div>
-                                            </td>
+                                            <th scope="col" class="border"
+                                                colspan="{{ count($data['sub']->where('jurusan_id', $jurusan->id)->where('attribute_id', $attribute->id)) }}">
+                                                {{ $attribute->kode }}</th>
                                         @endforeach
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        {{ $data['mahasiswas']->links() }}
+                                </thead>
+                                <!-- Table body -->
+                                <tbody class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700">
+                                    <!-- Row -->
+                                    @foreach ($data['mahasiswas'] as $mahasiswa)
+                                        <tr>
+                                            <th scope="row" class="p-2">
+                                                <div class="text-left">
+                                                    {{ $mahasiswa->nama }}
+                                                </div>
+                                            </th>
+                                            @foreach ($data['sub']->where('jurusan_id', $jurusan->id) as $subKriteria)
+                                                <td class="p-2">
+                                                    <div class="text-center">
+                                                        {{ $mahasiswa->nilaiSiswa->where('nilai_id', $subKriteria->nilai_id)->first()?->calculateMatriks($subKriteria->nilai) }}
+                                                    </div>
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $data['mahasiswas']->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
         {{-- <div class="sm:flex sm:justify-between sm:items-center mb-8">
             <div
                 class="w-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">

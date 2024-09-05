@@ -19,6 +19,11 @@ class Mahasiswa extends Model
         return $this->hasMany(NilaiSiswa::class);
     }
 
+    public function hasilQi(): HasMany
+    {
+        return $this->hasMany(HasilQi::class);
+    }
+
     public function hasil(): HasOne
     {
         return $this->hasOne(Hasil::class);

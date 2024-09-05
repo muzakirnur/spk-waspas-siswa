@@ -59,7 +59,7 @@
                             {{ $row->mahasiswa->asal_kelas }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $row->nilai }}
+                            {{ $row->rank }}
                         </td>
                         <td class="px-6 py-4">
                             @for ($i = 0; $i < count($quota); $i++)

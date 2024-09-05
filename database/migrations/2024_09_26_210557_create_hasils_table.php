@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('hasils', function (Blueprint $table) {
             $table->id();
             $table->foreignId('mahasiswa_id')->constrained();
-            $table->float('nilai', 8, 3);
+            $table->foreignId('jurusan_id')->constrained();
+            $table->integer('rank');
             $table->timestamps();
         });
     }
