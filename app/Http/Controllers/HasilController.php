@@ -20,29 +20,11 @@ class HasilController extends Controller
         return view('pages.hasil.index', compact('jurusans', 'data'));    
     }
 
-    function export()
+    function export(Request $request)
     {
-        $quota = [];
-        $jurusan = Jurusan::query()->orderBy('priority', 'asc')->get();
-        for($i=0;$i<count($jurusan);$i++){
-            if(count($quota) == 0){
-                $array = [
-                    'id' => $jurusan[$i]->id,
-                    'start' => 1,
-                    'end' => $jurusan[$i]->quota,
-                ];
-            }else{
-                $prevArray = $quota[$i-1];
-                $array = [
-                    'id' => $jurusan[$i]->id,
-                    'start' => $prevArray['end'] +1,
-                    'end' => $prevArray['end'] + $jurusan[$i]->quota,
-                ];
-            }
-            $quota[$i] = $array;
-        }
-        $data = Hasil::query()->with('mahasiswa')->orderBy('nilai', 'DESC')->get();
-        $pdf = Pdf::loadView('pdf.export', ['data' => $data, 'quota' => $quota, 'jurusan' => $jurusan]);
-        return $pdf->download('hasilPerankingan.pdf');
+        $jurusan = Jurusan::findOrFail($request->jurusan);
+        $data = Hasil::query()->where('jurusan_id', $request->jurusan)->orderBy('rank', 'asc')->get();
+        $pdf = Pdf::loadView('pdf.export', ['data' => $data, 'jurusan' => $jurusan]);
+        return $pdf->download('hasilPerankingan-' . $jurusan->nama . '.pdf');
     }
 }

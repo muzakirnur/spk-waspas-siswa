@@ -3,7 +3,8 @@
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
             @auth
                 <div class="sm:flex sm:justify-between sm:items-center mb-8">
-                    <a href="{{ route('hasil.export') }}" class="btn bg-red-500 hover:bg-red-600 text-white">
+                    <a href="{{ route('hasil.export') }}?jurusan={{ $jurusan->id }}"
+                        class="btn bg-red-500 hover:bg-red-600 text-white">
                         <i class="fa-solid fa-file-pdf"></i>
                         <span class="hidden xs:block ml-2">Export PDF</span>
                     </a>
