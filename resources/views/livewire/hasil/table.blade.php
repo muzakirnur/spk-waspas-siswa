@@ -10,7 +10,7 @@
     <div class="relative overflow-x-auto">
         @auth
             <div class="bg-white rounded-t-lg p-4">
-                <h5 class="mr-3 font-semibold dark:text-white">Hasil Perankingan</h5>
+                <h5 class="mr-3 font-semibold dark:text-white">Hasil Perankingan {{ $jurusan->nama }}</h5>
             </div>
         @endauth
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -60,13 +60,6 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $row->rank }}
-                        </td>
-                        <td class="px-6 py-4">
-                            @for ($i = 0; $i < count($quota); $i++)
-                                @if ($data->firstItem() + $loop->index >= $quota[$i]['start'] && $data->firstItem() + $loop->index <= $quota[$i]['end'])
-                                    Lulus {{ $jurusan->where('id', $quota[$i]['id'])->first()?->nama }}
-                                @endif
-                            @endfor
                         </td>
                     </tr>
                 @endforeach

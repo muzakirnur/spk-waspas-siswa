@@ -76,7 +76,7 @@ class CalculationRepository
         $jurusans = Jurusan::query()->orderBy('priority', 'asc')->get();
         $ranks = 0;
         foreach($jurusans as $jurusan){
-            $hasilQi = HasilQi::query()->where('jurusan_id', $jurusan->id)->orderBy('qi', 'asc')->get();
+            $hasilQi = HasilQi::query()->where('jurusan_id', $jurusan->id)->orderBy('qi', 'desc')->get();
             foreach($hasilQi as $hasilq){
                 if($ranks < $jurusan->quota){
                     if(!$hasilq->mahasiswa->hasil){

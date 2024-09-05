@@ -13,26 +13,11 @@ class HasilController extends Controller
 {
     function index()
     {
-        $prioritas = Jurusan::query()->orderBy('priority', 'asc')->get(['quota', 'nama']);
-        if (request()->ajax()) {
-            $hasils = Hasil::query()->with('mahasiswa');
-            return DataTables::eloquent($hasils)
-                ->order(function($query){
-                    $query->orderBy('rank', 'DESC');
-                })
-                ->orderColumn('rank', function($query, $order){
-                    $query->orderBy('rank', $order);
-                })
-                ->editColumn('status', function($hasils) use ($prioritas){
-                    // return $DT_RowIndex;
-                    // return $this->index_column;
-                    // return view('pages.hasil.status', compact('prioritas', 'hasils'));
-                })
-                ->addIndexColumn()
-                ->rawColumns(['status'])
-                ->make();
+        $jurusans = Jurusan::query()->orderBy('priority', 'asc')->get();
+        foreach($jurusans as $jurusan){
+            $data[$jurusan->id] = Hasil::query()->where('jurusan_id', $jurusan->id)->paginate(10);
         }
-        return view('pages.hasil.index');    
+        return view('pages.hasil.index', compact('jurusans', 'data'));    
     }
 
     function export()

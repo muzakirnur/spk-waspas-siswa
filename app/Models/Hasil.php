@@ -16,4 +16,9 @@ class Hasil extends Model
     {
         return $this->belongsTo(Mahasiswa::class);
     }
+
+    public function jurusan():BelongsTo
+    {
+        return $this->belongsTo(Jurusan::class);
+    }
 }

@@ -11,36 +11,19 @@ class Table extends Component
 {
     use WithPagination;
 
+    public Jurusan $jurusan;
     public $paginate=10;
     public $quota = [];
 
-    public function mount()
+    public function mount($jurusan)
     {
-        $jurusan = Jurusan::query()->orderBy('priority', 'asc')->get();
-        for($i=0;$i<count($jurusan);$i++){
-            if(count($this->quota) == 0){
-                $array = [
-                    'id' => $jurusan[$i]->id,
-                    'start' => 1,
-                    'end' => $jurusan[$i]->quota,
-                ];
-            }else{
-                $prevArray = $this->quota[$i-1];
-                $array = [
-                    'id' => $jurusan[$i]->id,
-                    'start' => $prevArray['end'] +1,
-                    'end' => $prevArray['end'] + $jurusan[$i]->quota,
-                ];
-            }
-            $this->quota[$i] = $array;
-        }
+        $this->jurusan = $jurusan;
     }
 
     public function render()
     {
         return view('livewire.hasil.table', [
-            'data' => Hasil::query()->orderBy('nilai', 'DESC')->paginate($this->paginate),
-            'jurusan' => Jurusan::query()->orderBy('priority', 'asc')->get(),
+            'data' => Hasil::query()->where('jurusan_id', $this->jurusan)->orderBy('rank', 'asc')->paginate($this->paginate),
         ]);
     }
 }
