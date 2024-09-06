@@ -8,7 +8,8 @@
             <p class="text-gray-700">JENIS KELAMIN : <span class="font-semibold">{{ $data->jenis_kelamin }}</span></p>
             <p class="text-gray-700">KELAS : <span class="font-semibold">{{ $data->asal_kelas }}</span></p>
             @if ($data->hasil)
-                <p class="text-gray-700">PENJURUSAN : <span class="font-semibold">{{ $jurusan }}</span>
+                <p class="text-gray-700">PENJURUSAN : <span
+                        class="font-semibold">{{ $data->hasil->jurusan->nama }}</span>
                 </p>
             @endif
         </div>
@@ -33,10 +34,10 @@
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $row->attribute->nama }}
+                                    {{ $row->nilai->nama }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $row->nilai }}
+                                    {{ $row->poin }}
                                 </td>
                             </tr>
                         @endforeach
