@@ -22,8 +22,8 @@ class NilaiSeeder extends Seeder
             'Nilai Tes IPA',
             'Nilai Tes IPS',
             'Nilai Tes Agama',
-            'Nilai Tes Bahasa Indonesia',
-            'Nilai Tes Bahasa Inggris',
+            'Nilai Tes Bakat IPA',
+            'Nilai Tes Bakat IPS',
             'Nilai Praktek Solat',
             'Nilai Praktek Baca Quran',
             'Nilai Praktek Hafalan Surat Pendek'
